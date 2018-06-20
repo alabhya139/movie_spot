@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Compiled and minified CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">SPOT MOVIES</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down">
+                <li>
+                    <a href="sass.html">Sass</a>
+                </li>
+                <li>
+                    <a href="badges.html">Components</a>
+                </li>
+                <li>
+                    <a href="collapsible.html">Javascript</a>
+                </li>
+                <li>
+                    <a href="mobile.html">Mobile</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li>
+            <a href="sass.html">Sass</a>
+        </li>
+        <li>
+            <a href="badges.html">Components</a>
+        </li>
+        <li>
+            <a href="collapsible.html">Javascript</a>
+        </li>
+        <li>
+            <a href="mobile.html">Mobile</a>
+        </li>
+    </ul>
+
+    <div class="carousel carousel-slider">
+        <a class="carousel-item" href="#one!">
+            <img src="images/deadpool-2.jpg">
+        </a>
+        <a class="carousel-item" href="#two!">
+            <img src="images/justice-league-poster-4k-oo.jpg">
+        </a>
+        <a class="carousel-item" href="#three!">
+            <img src="images/civilwar.jpg">
+        </a>
+        <a class="carousel-item" href="#four!">
+            <img src="images/fantasticfour.jpg">
+        </a>
+    </div>
+
+    <div class="section content">
+        <div class="row container">
+            <h2 class="header">About</h2>
+            <p class="grey-text text-darken-3 lighten-3">Parallax is an effect where the background content or image in this case, is moved at a different speed than
+                the foreground content while scrolling.</p>
+
+            <div class="search-box z-depth-5">
+                <h4 style="padding: 16px; text-align: center; color: white; background-image: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);">Movie Search</h4>
+                <div class="selector col s12">
+                        <select>
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">Title</option>
+                                <option value="2">IMDB Id</option>
+                                <option value="3">Year</option>
+                        </select>
+                        <label>Materialize Select</label>
+                </div>
+
+                <div class="row">
+                    <div class="selector col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">textsms</i>
+                                <input type="text" id="autocomplete-input" class="autocomplete">
+                                <label for="autocomplete-input">Autocomplete</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--jQuery Files-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <!--Javascript files-->
+    <script src="script.js"></script>
+</body>
+
+</html>
