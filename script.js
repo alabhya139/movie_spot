@@ -49,14 +49,14 @@ $(document).ready(function(){
       var value = $('.select option:selected').val();
       if(value == 1){
         var keyword = $('.input-movie').val();
-        var url = 'http://www.omdbapi.com/?s='+keyword+'&plot=shortl&apikey=b8b7d846'
+        var url = 'https://www.omdbapi.com/?s='+keyword+'&plot=shortl&apikey=b8b7d846'
         getData(url,value);
         $('.search-result').show();
         $('.card').show();
       }
       else if(value == 2){
         var keyword = $('.input-movie').val();
-        var url = 'http://www.omdbapi.com/?i='+keyword+'&plot=full&apikey=b8b7d846'
+        var url = 'https://www.omdbapi.com/?i='+keyword+'&plot=full&apikey=b8b7d846'
         getData(url,value);
         $('.search-result').show();
         $('.card').show();
@@ -64,7 +64,7 @@ $(document).ready(function(){
       else if(value == 3) {
         var keyword = $('.input-movie').val();
         var keyword_two = $('.input-movie2').val();
-        var url = 'http://www.omdbapi.com/?t='+keyword_two+'&y='+keyword+'&plot=full&apikey=b8b7d846'
+        var url = 'https://www.omdbapi.com/?t='+keyword_two+'&y='+keyword+'&plot=full&apikey=b8b7d846'
         getData(url,value);
         $('.search-result').show();
         $('.card').show();
