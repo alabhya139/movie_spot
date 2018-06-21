@@ -25,6 +25,8 @@ $(document).ready(function(){
 
     $('.optional-search').hide();
 
+    $('.preloader-wrapper').hide();
+
     //Hiding Search Result 
     $('.search-result').hide();
 
@@ -78,6 +80,8 @@ $(document).ready(function(){
     setTimeout(autoplay, 4500);
   }
 
+  
+  //function for retrieving data from Api
   let getData = (url,value)=>{
 
 
@@ -92,7 +96,9 @@ $(document).ready(function(){
       console.log(response);
       
       if(value == 1){
+        //perform operation if more than one movies found
         for(let i=0; i<response.Search.length;++i){
+          //Display custom image if no image available
           if(response.Search[i].Poster == "N/A"){
             let cardData = `<div class="card z-depth-5">
           <div class="card-image waves-effect waves-block waves-light">
@@ -110,6 +116,8 @@ $(document).ready(function(){
           $('#result').append(cardData);
           continue;
           }
+
+          //Display cards based on movies
           let cardData = `<div class="card z-depth-5">
           <div class="card-image waves-effect waves-block waves-light">
           <img class="activator" src="${response.Search[i].Poster}">
@@ -126,6 +134,7 @@ $(document).ready(function(){
           $('#result').append(cardData);
         }
       }else{
+        //display movies from single object
         let cardData = `<div class="card z-depth-5">
         <div class="card-image waves-effect waves-block waves-light">
           <img class="activator" src="${response.Poster}">
@@ -142,10 +151,28 @@ $(document).ready(function(){
       $('#result').append(cardData);
       }
 
-
+    //clear cards if select value is changed
     $('.select').change(()=>{
       $('.card').remove();
+      $('.search-result').hide();
     });
-    }
+    },
+
+    error: (response) =>{
+      alert("Some error Occured");
+      $('.search-result').hide();
+    },
+
+    beforeSend: () =>{
+      $('.preloader-wrapper').show();
+    },
+
+    complete: ()=>{
+      $('.preloader-wrapper').hide();
+    },
+
+    timeout:15000
+    
   });
+
   }
