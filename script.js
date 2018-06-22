@@ -51,6 +51,11 @@ $(document).ready(function(){
       var value = $('.select option:selected').val();
       if(value == 1){
         var keyword = $('.input-movie').val();
+        if(keyword == ""){
+          $('.search-result').hide();
+          alert("Please Enter Title");
+          return;
+        }
         var url = 'https://www.omdbapi.com/?s='+keyword+'&plot=shortl&apikey=b8b7d846'
         getData(url,value);
         $('.search-result').show();
@@ -58,6 +63,11 @@ $(document).ready(function(){
       }
       else if(value == 2){
         var keyword = $('.input-movie').val();
+        if(keyword == ""){
+          $('.search-result').hide();
+          alert("Please Enter IMDB Id");
+          return;
+        }
         var url = 'https://www.omdbapi.com/?i='+keyword+'&plot=full&apikey=b8b7d846'
         getData(url,value);
         $('.search-result').show();
@@ -65,7 +75,17 @@ $(document).ready(function(){
       }
       else if(value == 3) {
         var keyword = $('.input-movie').val();
+        if(keyword == ""){
+          $('.search-result').hide();
+          alert("Please Enter Year");
+          return;
+        }
         var keyword_two = $('.input-movie2').val();
+        if(keyword_two == ""){
+          $('.search-result').hide();
+          alert("Please Enter Title");
+          return;
+        }
         var url = 'https://www.omdbapi.com/?t='+keyword_two+'&y='+keyword+'&plot=full&apikey=b8b7d846'
         getData(url,value);
         $('.search-result').show();

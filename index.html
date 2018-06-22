@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Compiled and minified CSS -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
 </head>
@@ -16,22 +17,19 @@
 
     <nav>
         <div class="nav-wrapper">
-            <a href="#!" class="brand-logo spectral">SPOT MOVIES</a>
+            <a href="#!" style="font-size: 6vmin;" class="brand-logo spectral">SPOT MOVIES</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger">
                 <i class="material-icons">menu</i>
             </a>
             <ul class="right hide-on-med-and-down">
                 <li>
-                    <a href="sass.html">About</a>
+                    <a href="#about">About</a>
                 </li>
                 <li>
-                    <a href="https://www.omdbapi.com">OMDb Api</a>
+                    <a href="https://www.omdbapi.com" target="_blank">OMDb Api</a>
                 </li>
                 <li>
-                    <a href="collapsible.html">Javascript</a>
-                </li>
-                <li>
-                    <a href="mobile.html">Mobile</a>
+                    <a href="#contact">Contact</a>
                 </li>
             </ul>
         </div>
@@ -39,16 +37,13 @@
 
     <ul class="sidenav" id="mobile-demo">
         <li>
-            <a href="sass.html">Sass</a>
+            <a href="#about">About</a>
         </li>
         <li>
             <a href="https://www.omdbapi.com">OMDb Api</a>
         </li>
         <li>
-            <a href="collapsible.html">Javascript</a>
-        </li>
-        <li>
-            <a href="mobile.html">Mobile</a>
+            <a href="#contact">Contact</a>
         </li>
     </ul>
 
@@ -69,7 +64,7 @@
 
     <div class="section content z-depth-5">
         <div class="row container">
-            <h2 class="header">About</h2>
+            <h2 id = "about" class="header">About</h2>
             <p class="grey-text text-darken-3 lighten-3">Parallax is an effect where the background content or image in this case, is moved at a different speed than
                 the foreground content while scrolling.</p>
 
@@ -138,6 +133,24 @@
         <div id="result" class="resultCards">
         </div>
     </div>
+
+    <!-- Footer Section for contact informations-->
+	<footer>
+		<section>
+			<div id ="contact" class="footer-contact">
+				<a class="contact-link" href="https://github.com/alabhya139" target="_blank">
+					<i style="font-size: 32px; color: white;" class="fab fa-github"></i>
+				</a>
+				<a class="contact-link" href="https://www.facebook.com/alabhya.pandey.14" target="_blank">
+					<i style="font-size: 32px; color: white;" class="fab fa-facebook-square"></i>
+				</a>
+				<a class="contact-link" href="https://www.linkedin.com/in/alabhya-pandey-654270102/" target="_blank">
+					<i style="font-size: 32px; color: white;" class="fab fa-linkedin"></i>
+				</a>
+			</div>
+			<p class="footer-para myFonts">&copy 2018 Designed and Developed by Alabhya Pandey</p>
+		</section>
+	</footer>
 
     <!--jQuery Files-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
