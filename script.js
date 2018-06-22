@@ -93,17 +93,6 @@ $(document).ready(function(){
         var keyword = $('.input-movie').val();
         console.log(isNaN(keyword));
 
-        //Check if Year is Valid
-        if(isNaN(keyword)){
-          alert("Please Enter a Valid Year");
-          $('.search-result').hide();
-          return;
-        }else if((keyword<1900) || (keyword>2019)){
-          alert("Please Enter a Valid Year");
-          $('.search-result').hide();
-          return;
-        }
-
         //If Year input field is null search is based on only title
         if(keyword == ""){
           var keyword_two = $('.input-movie2').val();
@@ -112,6 +101,17 @@ $(document).ready(function(){
           console.log(url);
           $('.search-result').show();
           $('.card').show();
+          return;
+        }
+
+        //Check if Year is Valid
+        if(isNaN(keyword)){
+          alert("Please Enter a Valid Year");
+          $('.search-result').hide();
+          return;
+        }else if((keyword<1900) || (keyword>2019)){
+          alert("Please Enter a Valid Year");
+          $('.search-result').hide();
           return;
         }
 
@@ -172,7 +172,8 @@ $(document).ready(function(){
           </div>
           <div style="padding:8px"class="card-content">
           <span style="font-size:3vmin;"class="card-title activator grey-text text-darken-4">${response.Search[i].Title}<i class="material-icons right">more_vert</i></span>
-          <p><a href="${response.Search[i].Website}">This is a link</a></p>
+          <hr>
+          <h5>${response.Search[i].Year}</h5>
           </div>
           <div class="card-reveal">
           <span class="card-title grey-text text-darken-4">${response.Search[i].Title}<i class="material-icons right">close</i></span>
@@ -192,7 +193,8 @@ $(document).ready(function(){
           </div>
           <div style="padding:8px"class="card-content">
           <span style="font-size:3vmin;"class="card-title activator grey-text text-darken-4">${response.Search[i].Title}<i class="material-icons right">more_vert</i></span>
-          <p><a href="${response.Search[i].Website}">This is a link</a></p>
+          <hr>
+          <h5>${response.Search[i].Year}</h5>
           </div>
           <div class="card-reveal">
           <span class="card-title grey-text text-darken-4">${response.Search[i].Title}<i class="material-icons right">close</i></span>
@@ -211,7 +213,9 @@ $(document).ready(function(){
         </div>
         <div class="card-content">
         <span class="card-title activator grey-text text-darken-4">${response.Title}<i class="material-icons right">more_vert</i></span>
-          <p><a href="${response.Website}">This is a link</a></p>
+          <hr>  
+          <h5>${response.Year}</h5>
+          <p><a href="${response.Website}">Click Here</a></p>
         </div>
         <div class="card-reveal">
           <span class="card-title grey-text text-darken-4">${response.Title}<i class="material-icons right">close</i></span>
