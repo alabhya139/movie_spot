@@ -23,11 +23,13 @@ $(document).ready(function(){
       },
     });
 
+    //Hide Title field unless Year is choosen as Search Method
     $('.optional-search').hide();
 
+    //Hide Loader without processing
     $('.preloader-wrapper').hide();
 
-    //Hiding Search Result 
+    //Hiding Search Result Before Processing
     $('.search-result').hide();
 
     $('.select').change(()=>{
@@ -46,9 +48,19 @@ $(document).ready(function(){
       }
     });
 
+    //Handles Search Button Click
     $('#search-button').click(()=>{
       $('.card').remove();
       var value = $('.select option:selected').val();
+
+      //If Selected Search field is empty
+      if(value == 0){
+        $('.search-result').hide();
+        alert("Please Choose One of the Options!");
+        return;
+      }
+
+      //If Selected Search field is Title
       if(value == 1){
         var keyword = $('.input-movie').val();
         if(keyword == ""){
@@ -61,6 +73,8 @@ $(document).ready(function(){
         $('.search-result').show();
         $('.card').show();
       }
+
+      //If Selected Search field is IMDB ID
       else if(value == 2){
         var keyword = $('.input-movie').val();
         if(keyword == ""){
@@ -73,20 +87,45 @@ $(document).ready(function(){
         $('.search-result').show();
         $('.card').show();
       }
+
+      //If Selected Search field is Year
       else if(value == 3) {
         var keyword = $('.input-movie').val();
-        if(keyword == ""){
+        console.log(isNaN(keyword));
+
+        //Check if Year is Valid
+        if(isNaN(keyword)){
+          alert("Please Enter a Valid Year");
           $('.search-result').hide();
-          alert("Please Enter Year");
+          return;
+        }else if((keyword<1900) || (keyword>2019)){
+          alert("Please Enter a Valid Year");
+          $('.search-result').hide();
           return;
         }
+
+        //If Year input field is null search is based on only title
+        if(keyword == ""){
+          var keyword_two = $('.input-movie2').val();
+          var url = 'https://www.omdbapi.com/?t='+keyword_two+'&plot=full&apikey=b8b7d846'
+          getData(url,value);
+          console.log(url);
+          $('.search-result').show();
+          $('.card').show();
+          return;
+        }
+
+        //Check if Title input field is not null
         var keyword_two = $('.input-movie2').val();
         if(keyword_two == ""){
           $('.search-result').hide();
           alert("Please Enter Title");
           return;
         }
+
+        //Url if both input fields title and year is entered by user
         var url = 'https://www.omdbapi.com/?t='+keyword_two+'&y='+keyword+'&plot=full&apikey=b8b7d846'
+        console.log(url);
         getData(url,value);
         $('.search-result').show();
         $('.card').show();
@@ -115,6 +154,7 @@ $(document).ready(function(){
     success: (response) =>{
       console.log(response);
 
+      //Handles error if movie is not found
       if(response.Error == "Movie not found!"){
         alert(response.Error);
         $('.search-result').hide();
@@ -136,9 +176,11 @@ $(document).ready(function(){
           </div>
           <div class="card-reveal">
           <span class="card-title grey-text text-darken-4">${response.Search[i].Title}<i class="material-icons right">close</i></span>
-          <p>${response.Search[i].Plot}</p>
+          <p>Plot not available. Search with year and title or title!</p>
           </div>
           </div>`
+
+          //Append Resulted Card under element having result as ID
           $('#result').append(cardData);
           continue;
           }
@@ -154,9 +196,11 @@ $(document).ready(function(){
           </div>
           <div class="card-reveal">
           <span class="card-title grey-text text-darken-4">${response.Search[i].Title}<i class="material-icons right">close</i></span>
-          <p>${response.Search[i].Plot}</p>
+          <p>Plot not available. Search with year and title or title!</p>
           </div>
           </div>`
+
+          //Append Resulted Card under element having result as ID
           $('#result').append(cardData);
         }
       }else{
@@ -174,7 +218,8 @@ $(document).ready(function(){
           <p>${response.Plot}</p>
         </div>
         </div>`
-      $('#result').append(cardData);
+        //Append Resulted Card under element having result as ID
+        $('#result').append(cardData);
       }
 
     //clear cards if select value is changed
@@ -184,20 +229,24 @@ $(document).ready(function(){
     });
     },
 
+    //Handles Error Like Network Connection Failure
     error: (response) =>{
       
       alert("Something Went Wrong! Connection Seems Dead");
       $('.search-result').hide();
     },
 
+    //Show Loader before getting response
     beforeSend: () =>{
       $('.preloader-wrapper').show();
     },
 
+    //Hide Loader on getting a response
     complete: ()=>{
       $('.preloader-wrapper').hide();
     },
 
+    //Timeout of 15 seconds
     timeout:15000
     
   });
