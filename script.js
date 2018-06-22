@@ -43,7 +43,7 @@ $(document).ready(function(){
         $('.optional-search').hide();
       }
       else if(a == 3){
-        $('.autocomplete').text('Enter Year');
+        $('.autocomplete').text('Enter Year (Optional)');
         $('.optional-search').show();
       }
     });
