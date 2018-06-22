@@ -6,12 +6,12 @@
     font-weight: bold;
 }
 
-.carousel{
-    max-height: 70vh;
-}
-
 .sidenav{
     background-color: black;
+}
+
+.carousel{
+    max-height: 75vh;
 }
 
 .nav-wrapper{
@@ -80,6 +80,10 @@
     margin-right: auto;
 }
 
+.sidenav li a{
+    color: white;
+}
+
 @media only screen and (max-width: 768px){
     .card{
         width: 25%;
@@ -89,6 +93,10 @@
 @media only screen and (max-width: 600px){
     .card{
         width: 40%;
+    }
+
+    .carousel{
+        max-height: auto;
     }
 }
 

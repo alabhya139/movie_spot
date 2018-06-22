@@ -94,6 +94,12 @@ $(document).ready(function(){
 
     success: (response) =>{
       console.log(response);
+
+      if(response.Error == "Movie not found!"){
+        alert(response.Error);
+        $('.search-result').hide();
+        return;
+      }
       
       if(value == 1){
         //perform operation if more than one movies found
@@ -140,14 +146,14 @@ $(document).ready(function(){
           <img class="activator" src="${response.Poster}">
         </div>
         <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">${response.Title}<i class="material-icons right">more_vert</i></span>
+        <span class="card-title activator grey-text text-darken-4">${response.Title}<i class="material-icons right">more_vert</i></span>
           <p><a href="${response.Website}">This is a link</a></p>
         </div>
         <div class="card-reveal">
           <span class="card-title grey-text text-darken-4">${response.Title}<i class="material-icons right">close</i></span>
           <p>${response.Plot}</p>
         </div>
-      </div>`
+        </div>`
       $('#result').append(cardData);
       }
 
@@ -159,7 +165,8 @@ $(document).ready(function(){
     },
 
     error: (response) =>{
-      alert("Some error Occured");
+      
+      alert("Something Went Wrong! Connection Seems Dead");
       $('.search-result').hide();
     },
 
